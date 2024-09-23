@@ -251,22 +251,34 @@ public class Date
 	public boolean equals(Object other)
 	{
 		Date otherDate;
-		
-		if(other == null)
+
+		if (other == null) {
+			return false;
+		} else if (!(other instanceof Date)) //why not use getClass() introspection here?
 		{
 			return false;
-		}
-		else if(! (other instanceof Date)) //why not use getClass() introspection here?
-		{
-			return false;
-		}
-		else
-		{
+		} else {
 			otherDate = (Date) other;
 			return this.month.equals(otherDate.month) && this.day == otherDate.day
 					&& this.year == otherDate.year;
 		}
 	}
+	
+	
+	// public int compareTo(Object other) {
+	// 	Date otherDate;
+	// 	if (other == null) {
+	// 		return -1;
+	// 	}
+	// 	else if (!(other instanceof Date)) {
+	// 		return -1;
+	// 	}
+		
+	// 	otherDate = (Date) other;
+
+		
+		
+	
 
 	/**
 	 * Determines if calling object comes before param Date (checks month, day, year completely)
